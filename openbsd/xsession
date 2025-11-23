@@ -1,0 +1,18 @@
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_DATA_DIRS=/usr/local/share:/usr/X11R6/share:$XDG_DATA_DIRS
+export BROWSER=chromium
+ulimit -Sc0
+xset b off
+xset r rate 250 50
+
+eval `dbus-launch --sh-syntax`
+if [ -x ${PREFIX}/bin/dbus-launch -a -z "${DBUS_SESSION_BUS_ADDRESS}" ]; then
+          eval `dbus-launch --sh-syntax --exit-with-x11`
+          fi
+
+xrdb -merge $HOME/.Xresources &
+picom -b
+sh $HOME/.fehbg &
+exec dbus-run-session fvwm3
