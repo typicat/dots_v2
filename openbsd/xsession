@@ -2,7 +2,9 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_DIRS=/usr/local/share:/usr/X11R6/share:$XDG_DATA_DIRS
-export BROWSER=chromium
+export BROWSER=chrome
+export EDITOR="emacs -nw"
+
 ulimit -Sc0
 xset b off
 xset r rate 250 50
@@ -14,5 +16,8 @@ if [ -x ${PREFIX}/bin/dbus-launch -a -z "${DBUS_SESSION_BUS_ADDRESS}" ]; then
 
 xrdb -merge $HOME/.Xresources &
 picom -b
-sh $HOME/.fehbg &
+#sh $HOME/.fehbg &
+convert Pictures/pablo-guerrero--Q1p5Gzn45c-unsplash.jpg -resize 580x jpg:- | feh --bg-center --image-bg dimgray - &
+xrandr --dpi 96 &
 exec dbus-run-session fvwm3
+
