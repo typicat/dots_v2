@@ -16,8 +16,8 @@ chatnets = {
     max_msgs = "4";
     max_whois = "1";
     sasl_mechanism = "PLAIN";
-    sasl_username = "typicat";
-    sasl_password = "g00glebot0";
+    sasl_username = "xxx";
+    sasl_password = "xxx";
   };
 };
 
