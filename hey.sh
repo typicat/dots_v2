@@ -6,16 +6,21 @@ get_battery() {
     # apm -a returns 1 for AC, 0 for battery
     BATT=$(apm -l)
     AC=$(apm -a)
-    STATE="bat"
-    [ "$AC" -eq 1 ] && STATE="ac"
+    STATE=" bat"
+    [ "$AC" -eq 1 ] && STATE=" ac"
     echo -n "$STATE: $BATT%"
+}
+
+get_brightness() {
+    BRI=$(xbacklight | awk '{printf "%.0f", $1}')
+    echo -n "bri: $BRI%"
 }
 
 get_volume() {
     # sndioctl output.level returns a value between 0 and 1
     # awk extracts the number and converts it to a percentage
     VOL=$(sndioctl -n output.level | awk '{print int($1 * 100)}')
-    echo -n "vol: $VOL%"
+    echo -n "vol: $VOL% "
 }
 
 get_time() {
@@ -43,7 +48,7 @@ while true; do
     TM=$(get_time)
     MEM=$(get_mem)
     VOL=$(get_volume)
-
-    echo "%{l} $BAT - $LD - $MEM %{c}$TM %{r}$VOL"
+    BRI=$(get_brightness)
+    echo "%{l} $LD | $MEM %{c}$TM %{r}$VOL | $BRI | $BAT "
     sleep 2
-done | lemonbar-xft -p -g x22 -f "DejaVu Sans:pixelsize=10" -B "#66222222" -F "#ffffff"
+done | lemonbar-xft -d -p -g 1920x20+0+0 -f "Sans:pixelsize=10" -B "#66222222" -F "#ffffff"
