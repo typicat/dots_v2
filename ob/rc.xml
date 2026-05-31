@@ -203,46 +203,46 @@
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="S-A-Left">
+    <keybind key="S-W-1">
       <action name="SendToDesktop">
-        <to>left</to>
+        <to>1</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="S-A-Right">
+    <keybind key="S-W-2">
       <action name="SendToDesktop">
-        <to>right</to>
+        <to>2</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="S-A-Up">
+    <keybind key="S-W-3">
       <action name="SendToDesktop">
-        <to>up</to>
+        <to>3</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="S-A-Down">
+    <keybind key="S-W-4">
       <action name="SendToDesktop">
-        <to>down</to>
+        <to>4</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="W-F1">
+    <keybind key="W-1">
       <action name="GoToDesktop">
         <to>1</to>
       </action>
     </keybind>
-    <keybind key="W-F2">
+    <keybind key="W-2">
       <action name="GoToDesktop">
         <to>2</to>
       </action>
     </keybind>
-    <keybind key="W-F3">
+    <keybind key="W-3">
       <action name="GoToDesktop">
         <to>3</to>
       </action>
     </keybind>
-    <keybind key="W-F4">
+    <keybind key="W-4">
       <action name="GoToDesktop">
         <to>4</to>
       </action>
@@ -322,16 +322,16 @@
           <enabled>true</enabled>
           <name>Alacritty</name>
         </startupnotify>
-        <command>alacritty</command>
+        <command>xterm</command>
       </action>
     </keybind>
-    <keybind key="W-r">
+    <keybind key="W-space">
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
           <name>rofi</name>
         </startupnotify>
-        <command>rofi -show drun</command>
+        <command>rofi -show drun -show-icons</command>
       </action>
     </keybind>
       <keybind key="W-f">
@@ -340,7 +340,7 @@
             <enabled>true</enabled>
           <name>Firefox</name>
         </startupnotify>
-        <command>firefox</command>
+        <command>firefox-esr</command>
       </action>
     </keybind>
   </keyboard>
